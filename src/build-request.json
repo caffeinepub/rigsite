@@ -1,0 +1,308 @@
+{
+  "kind": "build_request",
+  "title": "Replicate riginstitute.com as a fully responsive React + Motoko site with blogs and enquiries admin",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a pixel-accurate (layout/spacing/typography/colors) React frontend that replicates the public website structure and content sections from https://www.riginstitute.com, using realistic English dummy copy where needed and avoiding placeholder text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "I want you to create a pixel-perfect replica of the following website: https://www.riginstitute.com",
+          "Same layout, spacing, colors, typography, banners",
+          "No placeholders like “add content here” → Use realistic dummy content & headings."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All key visual elements (header, nav, hero banners, section spacing, typography scale, buttons, cards) match the reference site closely.",
+        "No visible placeholder strings like “lorem ipsum” or “add content here” appear anywhere on public pages.",
+        "All user-facing text is in English."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement public routing/pages for all requested pages and ensure each page contains the appropriate sections: Home, About, Courses (including all sub-sections), International Courses, Academic Partners, Leadership, Faculty, Internship, Placement, Events, News, Industry Visit, Infrastructure, Testimonials, FAQ, Eligibility, Scholarship Test, Education Loan, Training Program, Blogs (listing + detail), Contact.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Replicate all pages & sections",
+          "Home",
+          "About",
+          "Courses (all sub-sections)",
+          "International Courses",
+          "Academic Partners",
+          "Leadership",
+          "Faculty",
+          "Internship",
+          "Placement",
+          "Events",
+          "News",
+          "Industry Visit",
+          "Infrastructure",
+          "Testimonials",
+          "FAQ",
+          "Eligibility",
+          "Scholarship Test",
+          "Education Loan",
+          "Training Program",
+          "Blogs (listing + detail page)",
+          "Contact"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each listed page is accessible via navigation and a direct URL route.",
+        "Courses page contains distinct sub-sections comparable to the reference site (not empty stubs).",
+        "Blogs includes a listing page and a detail page reachable from the listing.",
+        "Contact page includes an enquiry/contact form."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Make the entire site fully responsive for mobile, tablet, and desktop with layout behavior comparable to the reference site (navigation behavior, section stacking, typography adjustments, spacing).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Fully responsive (mobile, tablet, desktop)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Core breakpoints (mobile/tablet/desktop) render without overflow, broken grids, or unreadable text.",
+        "Navigation is usable on mobile (e.g., collapsible menu) and matches the reference site’s intent."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Use only non-copyrighted/dummy images that visually resemble the kinds of images used on the reference site (e.g., institute campus, classrooms, students, training), and wire them into the UI as static assets (do not fetch original site images).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Use dummy images where original images are copyrighted"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No images are hotlinked from riginstitute.com.",
+        "All pages that feature banners/thumbnails in the reference have corresponding dummy images in this app.",
+        "Dummy images are stored as static frontend assets and referenced by the UI."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a backend data model and APIs in the single Motoko actor to store and retrieve: (1) contact/enquiry submissions and (2) blog posts (title, slug, author, category/tags if needed, cover image reference, excerpt, HTML/MD content, created/updated timestamps, publish status).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact & enquiry forms store data in MySQL",
+          "Blog system (admin add/edit/delete)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Enquiry submissions persist across canister upgrades using stable storage patterns.",
+        "Blog posts persist across canister upgrades using stable storage patterns.",
+        "Backend exposes query/update methods to list/create/read/update/delete blog posts and to create/list/read enquiries."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build a Contact/Enquiry form on the Contact page that validates inputs client-side and submits to the Motoko backend; show a clear success/error state after submission.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact & enquiry forms store data in MySQL"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form prevents submission when required fields are missing/invalid.",
+        "On successful submission, the UI shows a confirmation message and does not lose responsiveness.",
+        "Submitted enquiries appear in the admin enquiries view (REQ-8)."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create public Blogs pages: a blog listing page with pagination or “load more”, and a blog detail page routed by slug; content is loaded from the Motoko backend.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Blogs (listing + detail page)",
+          "Blog system (admin add/edit/delete)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Blog listing shows multiple posts with title, date, excerpt, and optional cover image.",
+        "Clicking a post navigates to a detail page by slug and renders the full blog content.",
+        "If an unknown slug is visited, show a friendly not-found state."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement an admin area that uses Internet Identity for authentication; restrict admin actions (blog CRUD and enquiry viewing) to authenticated admins only.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "admin/ (login, add blogs, view enquiries)",
+          "Blog system (admin add/edit/delete)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Unauthenticated users cannot access admin pages or call admin-only backend methods.",
+        "Authenticated admin can access an admin dashboard UI.",
+        "Admin-only backend methods check caller identity/role."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Admin: provide UI to create/edit/delete blog posts, including setting publish status (draft/published) and editing slug/title/content; only published posts appear on the public blog listing.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Blog system (admin add/edit/delete)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin can create a new blog post and see it in admin list immediately.",
+        "Admin can edit an existing post and the public detail page reflects updates after refresh.",
+        "Admin can delete a post and it disappears from public listing.",
+        "Draft posts do not appear in public listing."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Admin: provide UI to view and search/filter enquiries (at minimum by date and name/email), and view enquiry details.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "admin/ (login, add blogs, view enquiries)",
+          "Contact & enquiry forms store data in MySQL"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin can see a table/list of enquiries with basic fields (name, email/phone, date).",
+        "Admin can open an enquiry detail view.",
+        "Admin can filter or search enquiries by at least one field (e.g., email/name)."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Ensure global site layout includes a consistent header and footer across all public pages, matching the reference site’s navigation and footer structure (links/sections) as closely as possible.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Common header & footer using PHP includes",
+          "Same layout, spacing, colors, typography, banners"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header and footer appear consistently across all public routes.",
+        "Navigation includes links to all requested pages and matches the reference site’s information architecture closely."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add an app-wide cohesive styling system in Tailwind that mirrors the reference site’s design tokens (colors, typography scale, button styles, card styles) and apply it consistently across all pages and components.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Same layout, spacing, colors, typography, banners"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Buttons, headings, body text, spacing, and section backgrounds follow a consistent system across the app.",
+        "Styling matches the reference site’s overall look-and-feel closely (without copying copyrighted assets)."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Provide deployment/run instructions appropriate for an Internet Computer app (local dfx start/deploy steps and production deployment guidance) and explicitly note deviations from the user’s requested PHP/MySQL+cPanel constraints due to the project’s fixed React+Motoko stack.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Should run directly on cPanel Linux hosting",
+          "Backend: PHP + MySQL (only for forms + blogs)",
+          "The final output must be a ZIP project",
+          "Finally: Deployment steps"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Documentation includes steps to run locally and deploy to IC using dfx.",
+        "Documentation clearly states that PHP/MySQL and cPanel ZIP deployment are not applicable in this stack, and explains the equivalent IC deployment approach."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must be implemented as a single Motoko actor (no additional backend services).",
+    "Frontend must be React + TypeScript with Tailwind, shadcn/ui composition, and React Query.",
+    "Do not edit files under frontend/src/components/ui or other immutable paths specified by the system.",
+    "Do not hotlink or copy copyrighted images/assets from riginstitute.com; use dummy/generated images instead.",
+    "All user-facing text in the build request must be English."
+  ],
+  "nonGoals": [
+    "Implementing PHP, MySQL, cPanel-specific ZIP packaging, or a PHP include-based file structure.",
+    "Using external databases or third-party backend services.",
+    "Third-party authentication providers other than Internet Identity.",
+    "Real-time chat/WebSockets/push notifications."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Wide homepage hero banner with an academic/training theme (home-hero.dim_1920x700.png)",
+      "Secondary internal page banner with a campus/education vibe (internal-banner.dim_1920x450.png)",
+      "Courses section thumbnail image in a clean institutional style (course-thumb-1.dim_800x600.png)",
+      "Courses section thumbnail image in a clean institutional style (course-thumb-2.dim_800x600.png)",
+      "International programs themed banner (international-banner.dim_1920x450.png)",
+      "Leadership profile headshot placeholder, professional portrait style (leader-1.dim_600x600.png)",
+      "Faculty profile headshot placeholder, professional portrait style (faculty-1.dim_600x600.png)",
+      "Infrastructure photo placeholder (infrastructure-1.dim_1200x800.png)",
+      "Testimonials avatar placeholder, friendly portrait style (testimonial-1.dim_256x256.png)",
+      "Blog cover image placeholder, modern education/news style (blog-cover-1.dim_1200x630.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

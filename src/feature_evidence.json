@@ -1,0 +1,277 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-pixel-accurate-layout-spacing-typography-colors-react-frontend-that-replicates-the-public-website-structure-and-content-sections-from-https-www-riginstitute-com-using-realistic-english-dummy-copy-where-needed-and-avoiding-placeholder-text",
+      "featureTitle": "Create a pixel-accurate (layout/spacing/typography/colors) React frontend that replicates the public website structure and content sections from https://www.riginstitute.com, using realistic English dummy copy where needed and avoiding placeholder text.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/public/PublicLayout.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-public-routing-pages-for-all-requested-pages-and-ensure-each-page-contains-the-appropriate-sections-home-about-courses-including-all-sub-sections-international-courses-academic-partners-leadership-faculty-internship-placement-events-news-industry-visit-infrastructure-testimonials-faq-eligibility-scholarship-test-education-loan-training-program-blogs-listing-detail-contact",
+      "featureTitle": "Implement public routing/pages for all requested pages and ensure each page contains the appropriate sections: Home, About, Courses (including all sub-sections), International Courses, Academic Partners, Leadership, Faculty, Internship, Placement, Events, News, Industry Visit, Infrastructure, Testimonials, FAQ, Eligibility, Scholarship Test, Education Loan, Training Program, Blogs (listing + detail), Contact.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/public/Footer.tsx",
+        "frontend/src/components/public/Header.tsx",
+        "frontend/src/pages/AcademicPartnersPage.tsx",
+        "frontend/src/pages/BlogDetailPage.tsx",
+        "frontend/src/pages/BlogsListPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/CoursesPage.tsx",
+        "frontend/src/pages/EducationLoanPage.tsx",
+        "frontend/src/pages/EligibilityPage.tsx",
+        "frontend/src/pages/EventsPage.tsx",
+        "frontend/src/pages/FacultyPage.tsx",
+        "frontend/src/pages/FaqPage.tsx",
+        "frontend/src/pages/IndustryVisitPage.tsx",
+        "frontend/src/pages/InfrastructurePage.tsx",
+        "frontend/src/pages/InternationalCoursesPage.tsx",
+        "frontend/src/pages/InternshipPage.tsx",
+        "frontend/src/pages/LeadershipPage.tsx",
+        "frontend/src/pages/NewsPage.tsx",
+        "frontend/src/pages/PlacementPage.tsx",
+        "frontend/src/pages/ScholarshipTestPage.tsx",
+        "frontend/src/pages/TestimonialsPage.tsx",
+        "frontend/src/pages/TrainingProgramPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-make-the-entire-site-fully-responsive-for-mobile-tablet-and-desktop-with-layout-behavior-comparable-to-the-reference-site-navigation-behavior-section-stacking-typography-adjustments-spacing",
+      "featureTitle": "Make the entire site fully responsive for mobile, tablet, and desktop with layout behavior comparable to the reference site (navigation behavior, section stacking, typography adjustments, spacing).",
+      "files": [
+        "frontend/src/components/public/Header.tsx",
+        "frontend/src/components/public/PublicLayout.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-use-only-non-copyrighted-dummy-images-that-visually-resemble-the-kinds-of-images-used-on-the-reference-site-e-g-institute-campus-classrooms-students-training-and-wire-them-into-the-ui-as-static-assets-do-not-fetch-original-site-images",
+      "featureTitle": "Use only non-copyrighted/dummy images that visually resemble the kinds of images used on the reference site (e.g., institute campus, classrooms, students, training), and wire them into the UI as static assets (do not fetch original site images).",
+      "files": [
+        "frontend/src/components/public/PublicLayout.tsx",
+        "frontend/src/pages/FacultyPage.tsx",
+        "frontend/src/pages/InfrastructurePage.tsx",
+        "frontend/src/pages/InternationalCoursesPage.tsx",
+        "frontend/src/pages/LeadershipPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-contact-enquiry-form-on-the-contact-page-that-validates-inputs-client-side-and-submits-to-the-motoko-backend-show-a-clear-success-error-state-after-submission",
+      "featureTitle": "Build a Contact/Enquiry form on the Contact page that validates inputs client-side and submits to the Motoko backend; show a clear success/error state after submission.",
+      "files": [
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-public-blogs-pages-a-blog-listing-page-with-pagination-or-load-more-and-a-blog-detail-page-routed-by-slug-content-is-loaded-from-the-motoko-backend",
+      "featureTitle": "Create public Blogs pages: a blog listing page with pagination or “load more”, and a blog detail page routed by slug; content is loaded from the Motoko backend.",
+      "files": [
+        "frontend/src/pages/BlogDetailPage.tsx",
+        "frontend/src/pages/BlogsListPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-an-admin-area-that-uses-internet-identity-for-authentication-restrict-admin-actions-blog-crud-and-enquiry-viewing-to-authenticated-admins-only",
+      "featureTitle": "Implement an admin area that uses Internet Identity for authentication; restrict admin actions (blog CRUD and enquiry viewing) to authenticated admins only.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/admin/AdminGuard.tsx",
+        "frontend/src/components/admin/AuthButton.tsx",
+        "frontend/src/components/admin/ProfileSetupModal.tsx",
+        "frontend/src/hooks/useAuthz.ts",
+        "frontend/src/pages/admin/AdminDashboardPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-admin-provide-ui-to-create-edit-delete-blog-posts-including-setting-publish-status-draft-published-and-editing-slug-title-content-only-published-posts-appear-on-the-public-blog-listing",
+      "featureTitle": "Admin: provide UI to create/edit/delete blog posts, including setting publish status (draft/published) and editing slug/title/content; only published posts appear on the public blog listing.",
+      "files": [
+        "frontend/src/pages/admin/AdminBlogEditorPage.tsx",
+        "frontend/src/pages/admin/AdminBlogsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-admin-provide-ui-to-view-and-search-filter-enquiries-at-minimum-by-date-and-name-email-and-view-enquiry-details",
+      "featureTitle": "Admin: provide UI to view and search/filter enquiries (at minimum by date and name/email), and view enquiry details.",
+      "files": [
+        "frontend/src/pages/admin/AdminEnquiriesPage.tsx",
+        "frontend/src/pages/admin/AdminEnquiryDetailPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-global-site-layout-includes-a-consistent-header-and-footer-across-all-public-pages-matching-the-reference-site-s-navigation-and-footer-structure-links-sections-as-closely-as-possible",
+      "featureTitle": "Ensure global site layout includes a consistent header and footer across all public pages, matching the reference site’s navigation and footer structure (links/sections) as closely as possible.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/public/Footer.tsx",
+        "frontend/src/components/public/Header.tsx",
+        "frontend/src/components/public/PublicLayout.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-app-wide-cohesive-styling-system-in-tailwind-that-mirrors-the-reference-site-s-design-tokens-colors-typography-scale-button-styles-card-styles-and-apply-it-consistently-across-all-pages-and-components",
+      "featureTitle": "Add an app-wide cohesive styling system in Tailwind that mirrors the reference site’s design tokens (colors, typography scale, button styles, card styles) and apply it consistently across all pages and components.",
+      "files": [
+        "frontend/src/components/public/ui/ButtonLink.tsx",
+        "frontend/src/components/public/ui/SectionHeading.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-provide-deployment-run-instructions-appropriate-for-an-internet-computer-app-local-dfx-start-deploy-steps-and-production-deployment-guidance-and-explicitly-note-deviations-from-the-user-s-requested-php-mysql-cpanel-constraints-due-to-the-project-s-fixed-react-motoko-stack",
+      "featureTitle": "Provide deployment/run instructions appropriate for an Internet Computer app (local dfx start/deploy steps and production deployment guidance) and explicitly note deviations from the user’s requested PHP/MySQL+cPanel constraints due to the project’s fixed React+Motoko stack.",
+      "files": [
+        "frontend/README.md"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

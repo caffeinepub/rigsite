@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a pixel-perfect, fully responsive replica of riginstitute.com using HTML/CSS/JS for static pages and PHP+MySQL for forms and a blog system, with shared header/footer includes, admin panel, and cPanel-ready deployment.",
+  "architectural_notes": [
+    "Frontend: HTML5, CSS3, JavaScript; Backend: PHP + MySQL limited to forms and blogs; other pages remain static HTML.",
+    "Use PHP includes for common header/footer (includes/header.php, includes/footer.php).",
+    "Admin area under /admin for login, blog CRUD, and viewing enquiries.",
+    "Target deployment: cPanel Linux hosting; deliver as a ZIP with SQL schema and deployment steps."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Wide homepage hero banner with an academic/training theme (home-hero.dim_1920x700.png)\n- Secondary internal page banner with a campus/education vibe (internal-banner.dim_1920x450.png)\n- Courses section thumbnail image in a clean institutional style (course-thumb-1.dim_800x600.png)\n- Courses section thumbnail image in a clean institutional style (course-thumb-2.dim_800x600.png)\n- International programs themed banner (international-banner.dim_1920x450.png)\n- Leadership profile headshot placeholder, professional portrait style (leader-1.dim_600x600.png)\n- Faculty profile headshot placeholder, professional portrait style (faculty-1.dim_600x600.png)\n- Infrastructure photo placeholder (infrastructure-1.dim_1200x800.png)\n- Testimonials avatar placeholder, friendly portrait style (testimonial-1.dim_256x256.png)\n- Blog cover image placeholder, modern education/news style (blog-cover-1.dim_1200x630.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-pixel-accurate-layout-spacing-typography-colors-react-frontend-that-replicates-the-public-website-structure-and-content-sections-from-https-www-riginstitute-com-using-realistic-english-dummy-copy-where-needed-and-avoiding-placeholder-text",
+      "title": "Create a pixel-accurate (layout/spacing/typography/colors) React frontend that replicates the public website structure and content sections from https://www.riginstitute.com, using realistic English dummy copy where needed and avoiding placeholder text.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-public-routing-pages-for-all-requested-pages-and-ensure-each-page-contains-the-appropriate-sections-home-about-courses-including-all-sub-sections-international-courses-academic-partners-leadership-faculty-internship-placement-events-news-industry-visit-infrastructure-testimonials-faq-eligibility-scholarship-test-education-loan-training-program-blogs-listing-detail-contact",
+      "title": "Implement public routing/pages for all requested pages and ensure each page contains the appropriate sections: Home, About, Courses (including all sub-sections), International Courses, Academic Partners, Leadership, Faculty, Internship, Placement, Events, News, Industry Visit, Infrastructure, Testimonials, FAQ, Eligibility, Scholarship Test, Education Loan, Training Program, Blogs (listing + detail), Contact.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-entire-site-fully-responsive-for-mobile-tablet-and-desktop-with-layout-behavior-comparable-to-the-reference-site-navigation-behavior-section-stacking-typography-adjustments-spacing",
+      "title": "Make the entire site fully responsive for mobile, tablet, and desktop with layout behavior comparable to the reference site (navigation behavior, section stacking, typography adjustments, spacing).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-only-non-copyrighted-dummy-images-that-visually-resemble-the-kinds-of-images-used-on-the-reference-site-e-g-institute-campus-classrooms-students-training-and-wire-them-into-the-ui-as-static-assets-do-not-fetch-original-site-images",
+      "title": "Use only non-copyrighted/dummy images that visually resemble the kinds of images used on the reference site (e.g., institute campus, classrooms, students, training), and wire them into the UI as static assets (do not fetch original site images).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-contact-enquiry-form-on-the-contact-page-that-validates-inputs-client-side-and-submits-to-the-motoko-backend-show-a-clear-success-error-state-after-submission",
+      "title": "Build a Contact/Enquiry form on the Contact page that validates inputs client-side and submits to the Motoko backend; show a clear success/error state after submission.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-public-blogs-pages-a-blog-listing-page-with-pagination-or-load-more-and-a-blog-detail-page-routed-by-slug-content-is-loaded-from-the-motoko-backend",
+      "title": "Create public Blogs pages: a blog listing page with pagination or “load more”, and a blog detail page routed by slug; content is loaded from the Motoko backend.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-admin-area-that-uses-internet-identity-for-authentication-restrict-admin-actions-blog-crud-and-enquiry-viewing-to-authenticated-admins-only",
+      "title": "Implement an admin area that uses Internet Identity for authentication; restrict admin actions (blog CRUD and enquiry viewing) to authenticated admins only.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-admin-provide-ui-to-create-edit-delete-blog-posts-including-setting-publish-status-draft-published-and-editing-slug-title-content-only-published-posts-appear-on-the-public-blog-listing",
+      "title": "Admin: provide UI to create/edit/delete blog posts, including setting publish status (draft/published) and editing slug/title/content; only published posts appear on the public blog listing.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-admin-provide-ui-to-view-and-search-filter-enquiries-at-minimum-by-date-and-name-email-and-view-enquiry-details",
+      "title": "Admin: provide UI to view and search/filter enquiries (at minimum by date and name/email), and view enquiry details.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-global-site-layout-includes-a-consistent-header-and-footer-across-all-public-pages-matching-the-reference-site-s-navigation-and-footer-structure-links-sections-as-closely-as-possible",
+      "title": "Ensure global site layout includes a consistent header and footer across all public pages, matching the reference site’s navigation and footer structure (links/sections) as closely as possible.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-app-wide-cohesive-styling-system-in-tailwind-that-mirrors-the-reference-site-s-design-tokens-colors-typography-scale-button-styles-card-styles-and-apply-it-consistently-across-all-pages-and-components",
+      "title": "Add an app-wide cohesive styling system in Tailwind that mirrors the reference site’s design tokens (colors, typography scale, button styles, card styles) and apply it consistently across all pages and components.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-deployment-run-instructions-appropriate-for-an-internet-computer-app-local-dfx-start-deploy-steps-and-production-deployment-guidance-and-explicitly-note-deviations-from-the-user-s-requested-php-mysql-cpanel-constraints-due-to-the-project-s-fixed-react-motoko-stack",
+      "title": "Provide deployment/run instructions appropriate for an Internet Computer app (local dfx start/deploy steps and production deployment guidance) and explicitly note deviations from the user’s requested PHP/MySQL+cPanel constraints due to the project’s fixed React+Motoko stack.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create pixel-perfect responsive frontend replicating all specified pages/sections (Home, About, Courses & subsections, International Courses, Academic Partners, Leadership, Faculty, Internship, Placement, Events, News, Industry Visit, Infrastructure, Testimonials, FAQ, Eligibility, Scholarship Test, Education Loan, Training Program, Blogs listing/detail, Contact) using HTML/CSS/JS.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement common site layout using PHP includes for header and footer across pages.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Build Contact & enquiry forms that store submissions in MySQL (PHP backend) and provide admin viewing of enquiries.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Develop blog system with MySQL storage: public blog listing + detail pages and admin add/edit/delete functionality with login.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Set up project folder structure (rigsite/) with assets (CSS/JS/images), includes, and admin area as specified; ensure static pages remain HTML.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Prepare deployment-ready deliverables: SQL schema, cPanel Linux hosting compatibility, and provide ZIP-packaged project with deployment steps.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Use realistic dummy content/headings and dummy images where original images may be copyrighted (no placeholder text).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement a backend data model and APIs in the single Motoko actor to store and retrieve: (1) contact/enquiry submissions and (2) blog posts (title, slug, author, category/tags if needed, cover image reference, excerpt, HTML/MD content, created/updated timestamps, publish status).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "rigsite",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

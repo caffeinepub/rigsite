@@ -1,0 +1,537 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "RIG Institute replica (React + Tailwind) with blogs + admin (Internet Identity)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a pixel-accurate public-facing React UI mirroring riginstitute.com sections with realistic English copy.",
+      "acceptanceCriteria": [
+        "All key visual elements (header, nav, hero banners, section spacing, typography scale, buttons, cards) match the reference site closely.",
+        "No visible placeholder strings like “lorem ipsum” or “add content here” appear anywhere on public pages.",
+        "All user-facing text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell and route layout composition for the public site to replicate the reference site structure and section ordering."
+        },
+        {
+          "path": "frontend/src/components/public/PublicLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared public layout wrapper used by all public pages to ensure consistent spacing/typography and page scaffolding (banner slots, section containers)."
+        },
+        {
+          "path": "frontend/src/components/public/sections/HomeSections.tsx",
+          "operation": "create",
+          "description": "Implement the Home page section components (hero, highlights, courses preview, partners, testimonials preview, news/events preview) with realistic English copy and pixel-aligned spacing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Implement the Home page view composed of the required sections and referencing only local dummy images."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Implement About page sections with realistic English copy and matching typography/spacing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement public routes/pages for all requested pages and ensure each includes comparable sections; include blogs listing/detail and contact form.",
+      "acceptanceCriteria": [
+        "Each listed page is accessible via navigation and a direct URL route.",
+        "Courses page contains distinct sub-sections comparable to the reference site (not empty stubs).",
+        "Blogs includes a listing page and a detail page reachable from the listing.",
+        "Contact page includes an enquiry/contact form."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/routes/publicRoutes.tsx",
+          "operation": "create",
+          "description": "Define the public routing table for all required pages (including blog detail by slug) and export it for App wiring."
+        },
+        {
+          "path": "frontend/src/pages/CoursesPage.tsx",
+          "operation": "create",
+          "description": "Create Courses page with distinct sub-sections comparable to the reference site (e.g., programs overview, curriculum, certification, admissions, outcomes), using realistic English copy."
+        },
+        {
+          "path": "frontend/src/pages/InternationalCoursesPage.tsx",
+          "operation": "create",
+          "description": "Create International Courses page with comparable sections and banner usage."
+        },
+        {
+          "path": "frontend/src/pages/AcademicPartnersPage.tsx",
+          "operation": "create",
+          "description": "Create Academic Partners page with partner grid/sections matching the reference site’s intent."
+        },
+        {
+          "path": "frontend/src/pages/LeadershipPage.tsx",
+          "operation": "create",
+          "description": "Create Leadership page with leadership cards and profile section layout."
+        },
+        {
+          "path": "frontend/src/pages/FacultyPage.tsx",
+          "operation": "create",
+          "description": "Create Faculty page with faculty listing and profile card sections."
+        },
+        {
+          "path": "frontend/src/pages/InternshipPage.tsx",
+          "operation": "create",
+          "description": "Create Internship page with overview, process, partner/company highlights, and outcomes sections."
+        },
+        {
+          "path": "frontend/src/pages/PlacementPage.tsx",
+          "operation": "create",
+          "description": "Create Placement page with process, support, and recruiter highlights sections."
+        },
+        {
+          "path": "frontend/src/pages/EventsPage.tsx",
+          "operation": "create",
+          "description": "Create Events page with event listing sections matching reference-style cards."
+        },
+        {
+          "path": "frontend/src/pages/NewsPage.tsx",
+          "operation": "create",
+          "description": "Create News page with news listing sections matching reference-style cards."
+        },
+        {
+          "path": "frontend/src/pages/IndustryVisitPage.tsx",
+          "operation": "create",
+          "description": "Create Industry Visit page with overview, gallery-style sections using dummy images."
+        },
+        {
+          "path": "frontend/src/pages/InfrastructurePage.tsx",
+          "operation": "create",
+          "description": "Create Infrastructure page with image + feature sections comparable to reference site."
+        },
+        {
+          "path": "frontend/src/pages/TestimonialsPage.tsx",
+          "operation": "create",
+          "description": "Create Testimonials page with testimonial cards and avatars."
+        },
+        {
+          "path": "frontend/src/pages/FaqPage.tsx",
+          "operation": "create",
+          "description": "Create FAQ page with structured Q&A layout."
+        },
+        {
+          "path": "frontend/src/pages/EligibilityPage.tsx",
+          "operation": "create",
+          "description": "Create Eligibility page with requirements, criteria, and guidance sections."
+        },
+        {
+          "path": "frontend/src/pages/ScholarshipTestPage.tsx",
+          "operation": "create",
+          "description": "Create Scholarship Test page with overview, eligibility, and steps sections."
+        },
+        {
+          "path": "frontend/src/pages/EducationLoanPage.tsx",
+          "operation": "create",
+          "description": "Create Education Loan page with partner/process sections and FAQs."
+        },
+        {
+          "path": "frontend/src/pages/TrainingProgramPage.tsx",
+          "operation": "create",
+          "description": "Create Training Program page with modules, outcomes, and schedule-style sections."
+        },
+        {
+          "path": "frontend/src/pages/BlogsListPage.tsx",
+          "operation": "create",
+          "description": "Create Blogs listing page shell (UI and routing integration); data fetching and pagination wiring is handled in REQ-7."
+        },
+        {
+          "path": "frontend/src/pages/BlogDetailPage.tsx",
+          "operation": "create",
+          "description": "Create Blog detail page shell routed by slug; data fetching and not-found handling is handled in REQ-7."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create Contact page layout including contact details and an enquiry form area; form submission wiring is handled in REQ-6."
+        },
+        {
+          "path": "frontend/src/components/public/Header.tsx",
+          "operation": "create",
+          "description": "Implement navigation UI that links to every required public route and matches the reference site’s information architecture."
+        },
+        {
+          "path": "frontend/src/components/public/Footer.tsx",
+          "operation": "create",
+          "description": "Implement footer sections/links comparable to reference site and wire to all required public routes."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire all public routes into the application router and ensure navigation links resolve to direct URL routes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Make the site fully responsive across mobile/tablet/desktop including a usable mobile navigation experience.",
+      "acceptanceCriteria": [
+        "Core breakpoints (mobile/tablet/desktop) render without overflow, broken grids, or unreadable text.",
+        "Navigation is usable on mobile (e.g., collapsible menu) and matches the reference site’s intent."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/public/Header.tsx",
+          "operation": "modify",
+          "description": "Add responsive navigation behavior (collapsible mobile menu, accessible focus order) comparable to the reference site."
+        },
+        {
+          "path": "frontend/src/components/public/sections/HomeSections.tsx",
+          "operation": "modify",
+          "description": "Adjust section grids, stacking, spacing, and typography for mobile/tablet/desktop breakpoints to avoid overflow and match intended layout."
+        },
+        {
+          "path": "frontend/src/components/public/PublicLayout.tsx",
+          "operation": "modify",
+          "description": "Standardize responsive container widths, section paddings, and banner spacing for consistent behavior across breakpoints."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Use only non-copyrighted dummy images and store them as static frontend assets; do not hotlink reference site images.",
+      "acceptanceCriteria": [
+        "No images are hotlinked from riginstitute.com.",
+        "All pages that feature banners/thumbnails in the reference have corresponding dummy images in this app.",
+        "Dummy images are stored as static frontend assets and referenced by the UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/home-hero.dim_1920x700.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for the wide homepage hero banner."
+        },
+        {
+          "path": "frontend/public/assets/generated/internal-banner.dim_1920x450.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for internal page banners."
+        },
+        {
+          "path": "frontend/public/assets/generated/course-thumb-1.dim_800x600.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for course thumbnail usage."
+        },
+        {
+          "path": "frontend/public/assets/generated/course-thumb-2.dim_800x600.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for course thumbnail usage."
+        },
+        {
+          "path": "frontend/public/assets/generated/international-banner.dim_1920x450.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for International Courses banner."
+        },
+        {
+          "path": "frontend/public/assets/generated/leader-1.dim_600x600.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for leadership profile placeholder."
+        },
+        {
+          "path": "frontend/public/assets/generated/faculty-1.dim_600x600.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for faculty profile placeholder."
+        },
+        {
+          "path": "frontend/public/assets/generated/infrastructure-1.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for infrastructure photo placeholder."
+        },
+        {
+          "path": "frontend/public/assets/generated/testimonial-1.dim_256x256.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for testimonial avatar placeholder."
+        },
+        {
+          "path": "frontend/public/assets/generated/blog-cover-1.dim_1200x630.png",
+          "operation": "create",
+          "description": "Add generated dummy image asset for blog cover placeholder."
+        },
+        {
+          "path": "frontend/src/components/public/sections/HomeSections.tsx",
+          "operation": "modify",
+          "description": "Wire static image references to generated assets (frontend/public/assets/generated/home-hero.dim_1920x700.png, frontend/public/assets/generated/course-thumb-1.dim_800x600.png, frontend/public/assets/generated/course-thumb-2.dim_800x600.png, frontend/public/assets/generated/testimonial-1.dim_256x256.png, frontend/public/assets/generated/blog-cover-1.dim_1200x630.png) and ensure no hotlinks are used."
+        },
+        {
+          "path": "frontend/src/pages/InternationalCoursesPage.tsx",
+          "operation": "modify",
+          "description": "Wire banner image reference to frontend/public/assets/generated/international-banner.dim_1920x450.png and ensure images are local assets only."
+        },
+        {
+          "path": "frontend/src/pages/InfrastructurePage.tsx",
+          "operation": "modify",
+          "description": "Wire infrastructure imagery to frontend/public/assets/generated/infrastructure-1.dim_1200x800.png and ensure images are local assets only."
+        },
+        {
+          "path": "frontend/src/pages/LeadershipPage.tsx",
+          "operation": "modify",
+          "description": "Wire leadership avatar to frontend/public/assets/generated/leader-1.dim_600x600.png and ensure images are local assets only."
+        },
+        {
+          "path": "frontend/src/pages/FacultyPage.tsx",
+          "operation": "modify",
+          "description": "Wire faculty avatar to frontend/public/assets/generated/faculty-1.dim_600x600.png and ensure images are local assets only."
+        },
+        {
+          "path": "frontend/src/components/public/PublicLayout.tsx",
+          "operation": "modify",
+          "description": "Wire internal banner usage to frontend/public/assets/generated/internal-banner.dim_1920x450.png for relevant internal pages that use banners."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement the Contact/Enquiry form with client-side validation, backend submission, and success/error UI states.",
+      "acceptanceCriteria": [
+        "Form prevents submission when required fields are missing/invalid.",
+        "On successful submission, the UI shows a confirmation message and does not lose responsiveness.",
+        "Submitted enquiries appear in the admin enquiries view (REQ-8)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "operation": "create",
+          "description": "Create the enquiry form component with client-side validation, loading state, and success/error state rendering; submit via the Motoko backend capability using React Query."
+        },
+        {
+          "path": "frontend/src/hooks/useContactForm.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook for submitting contact forms using the actor (submitContactForm) and expose standardized error handling."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Wire the ContactForm component into the Contact page and ensure the page shows a clear confirmation/error state after submission."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create public blog listing with pagination/load-more and slug-routed detail page, loading content from the backend with a friendly not-found state.",
+      "acceptanceCriteria": [
+        "Blog listing shows multiple posts with title, date, excerpt, and optional cover image.",
+        "Clicking a post navigates to a detail page by slug and renders the full blog content.",
+        "If an unknown slug is visited, show a friendly not-found state."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useBlogs.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for blog listing pagination/load-more (getBlogPosts) and for fetching by slug (getBlogPostBySlug), including loading and error states."
+        },
+        {
+          "path": "frontend/src/pages/BlogsListPage.tsx",
+          "operation": "modify",
+          "description": "Wire blog list data from useBlogs, render cards with title/date/excerpt/optional cover image, and implement pagination or “load more” behavior."
+        },
+        {
+          "path": "frontend/src/pages/BlogDetailPage.tsx",
+          "operation": "modify",
+          "description": "Wire slug-based fetch, render full blog content, and display a friendly not-found state when getBlogPostBySlug returns null."
+        },
+        {
+          "path": "frontend/src/routes/publicRoutes.tsx",
+          "operation": "modify",
+          "description": "Ensure the blog detail route is configured to accept a slug param and is reachable from the listing via navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement an admin area protected by Internet Identity and admin authorization checks; restrict admin UI access accordingly.",
+      "acceptanceCriteria": [
+        "Unauthenticated users cannot access admin pages or call admin-only backend methods.",
+        "Authenticated admin can access an admin dashboard UI.",
+        "Admin-only backend methods check caller identity/role."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/routes/adminRoutes.tsx",
+          "operation": "create",
+          "description": "Create admin route definitions (dashboard, blogs management, enquiries) and export for App wiring."
+        },
+        {
+          "path": "frontend/src/components/admin/AdminGuard.tsx",
+          "operation": "create",
+          "description": "Create an admin guard wrapper that requires Internet Identity login and checks admin status via backend capability before rendering admin pages. Use the selected 'authorization' component approach for RBAC and authenticated access. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/admin/AuthButton.tsx",
+          "operation": "create",
+          "description": "Create a login/logout UI control using Internet Identity. Use the selected 'authorization' component guidance for login/logout and clearing React Query cache on logout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/admin/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create a first-login profile setup modal to collect and save the admin’s display name (UserProfile) after login. Use the selected 'authorization' component guidance to prevent modal flash by gating on actor readiness and query fetch state. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useAuthz.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for authorization state (getCallerUserRole, isCallerAdmin, getCallerUserProfile, saveCallerUserProfile) to support admin guarding and profile setup flows. Use the selected 'authorization' component guidance. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminDashboardPage.tsx",
+          "operation": "create",
+          "description": "Create an admin dashboard landing page with navigation cards/links to blog management and enquiries."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire admin routes under an /admin path, wrapped by AdminGuard, and ensure unauthorized users see an access denied/redirect experience."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Admin blog CRUD UI (create/edit/delete/publish) with draft/published behavior; only published posts appear publicly.",
+      "acceptanceCriteria": [
+        "Admin can create a new blog post and see it in admin list immediately.",
+        "Admin can edit an existing post and the public detail page reflects updates after refresh.",
+        "Admin can delete a post and it disappears from public listing.",
+        "Draft posts do not appear in public listing."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAdminBlogs.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for admin blog operations (createBlogPost, updateBlogPost, deleteBlogPost, and admin-side listing/filtering) with cache invalidation on success."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminBlogsPage.tsx",
+          "operation": "create",
+          "description": "Create admin blog list page with actions to create, edit, delete, and toggle publish status; show immediate updates via React Query cache invalidation."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminBlogEditorPage.tsx",
+          "operation": "create",
+          "description": "Create admin blog editor page for creating/editing slug/title/excerpt/content/tags and publish status; validate required fields client-side."
+        },
+        {
+          "path": "frontend/src/routes/adminRoutes.tsx",
+          "operation": "modify",
+          "description": "Register admin blog routes (list + editor) and ensure they are reachable from the admin dashboard."
+        },
+        {
+          "path": "frontend/src/hooks/useBlogs.ts",
+          "operation": "modify",
+          "description": "Ensure public blog listing queries request only published posts (e.g., using available backend capabilities) so drafts never appear publicly."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Admin enquiries UI with list, detail view, and search/filter (at least by name/email/date).",
+      "acceptanceCriteria": [
+        "Admin can see a table/list of enquiries with basic fields (name, email/phone, date).",
+        "Admin can open an enquiry detail view.",
+        "Admin can filter or search enquiries by at least one field (e.g., email/name)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAdminEnquiries.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for enquiries listing (getAllContactForms) and searching (searchContactForms), including basic client-side filter helpers (date/name/email)."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminEnquiriesPage.tsx",
+          "operation": "create",
+          "description": "Create admin enquiries list page with a search input and/or date filter and a list/table view showing name, email, and date, with navigation to a detail view."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminEnquiryDetailPage.tsx",
+          "operation": "create",
+          "description": "Create admin enquiry detail page to show full message and contact info for a selected enquiry."
+        },
+        {
+          "path": "frontend/src/routes/adminRoutes.tsx",
+          "operation": "modify",
+          "description": "Register admin enquiries routes (list + detail) and ensure they are reachable from the admin dashboard."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Implement a consistent global header/footer across all public pages with navigation links to all requested pages.",
+      "acceptanceCriteria": [
+        "Header and footer appear consistently across all public routes.",
+        "Navigation includes links to all requested pages and matches the reference site’s information architecture closely."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/public/PublicLayout.tsx",
+          "operation": "modify",
+          "description": "Ensure PublicLayout renders the shared Header and Footer around page content for all public routes."
+        },
+        {
+          "path": "frontend/src/components/public/Header.tsx",
+          "operation": "modify",
+          "description": "Ensure header navigation includes links to every requested public page, with dropdown/grouping comparable to the reference site."
+        },
+        {
+          "path": "frontend/src/components/public/Footer.tsx",
+          "operation": "modify",
+          "description": "Ensure footer contains structured link sections comparable to the reference site and is consistent across routes."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all public routes with PublicLayout so header/footer are present across the entire public site."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Create cohesive Tailwind styling tokens matching the reference site and apply consistently across UI elements.",
+      "acceptanceCriteria": [
+        "Buttons, headings, body text, spacing, and section backgrounds follow a consistent system across the app.",
+        "Styling matches the reference site’s overall look-and-feel closely (without copying copyrighted assets)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme tokens (brand colors, typography scale, spacing, shadows) to match the reference site’s look-and-feel while keeping shadcn/ui compatibility."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global Tailwind base styles and a small set of app-wide utility classes (e.g., section paddings, typography defaults) to enforce consistent styling across pages."
+        },
+        {
+          "path": "frontend/src/components/public/ui/ButtonLink.tsx",
+          "operation": "create",
+          "description": "Create a small composition component for consistent button/link styling across the public site (do not modify immutable shadcn/ui files under frontend/src/components/ui)."
+        },
+        {
+          "path": "frontend/src/components/public/ui/SectionHeading.tsx",
+          "operation": "create",
+          "description": "Create a reusable section heading component to standardize typography scale and spacing across pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Add IC-appropriate run/deploy documentation and note deviations from PHP/MySQL+cPanel due to React+Motoko stack.",
+      "acceptanceCriteria": [
+        "Documentation includes steps to run locally and deploy to IC using dfx.",
+        "Documentation clearly states that PHP/MySQL and cPanel ZIP deployment are not applicable in this stack, and explains the equivalent IC deployment approach."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/README.md",
+          "operation": "create",
+          "description": "Document local development and deployment steps for an Internet Computer app (dfx start/deploy guidance) and explicitly explain why PHP/MySQL+cPanel ZIP deployment is not applicable for this React+Motoko stack."
+        }
+      ]
+    }
+  ]
+}

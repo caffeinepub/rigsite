@@ -1,0 +1,98 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T06:47:55.607Z",
+  "summary": "Diff adds a Motoko backend actor with blog/enquiry types and admin checks, plus a React+TS frontend scaffold with TanStack Router, React Query, public layout (header/footer), and an admin guard using Internet Identity. However, stable upgrade persistence and deployment documentation are not evidenced, and some implemented auth/profile/secret-token mechanisms appear beyond the BuildRequest.",
+  "missing_requirements": [
+    {
+      "id": "REQ-5",
+      "requirement": "Enquiry submissions and blog posts must persist across canister upgrades using stable storage patterns.",
+      "reason": "The backend state shown uses in-memory Maps and vars (e.g., `let blogPosts = Map.empty...`, `var nextPostId = 1`) with no evidence of `stable var` state, preupgrade/postupgrade hooks, or stable serialization patterns in the provided diff excerpt.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "requirement": "Provide deployment/run instructions for an Internet Computer app (local dfx steps + production guidance) and explicitly note deviations from PHP/MySQL+cPanel.",
+      "reason": "No documentation files (README/DEPLOYMENT) or instruction text are shown in the diff summary; only code files are evidenced.",
+      "evidence": [
+        "file-diff summary shows only code additions; no README/docs listed"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "User profile creation/setup flow for admins/users (ProfileSetupModal + get/save user profile methods).",
+      "reason": "BuildRequest requirements focus on blogs, enquiries, and admin access control; it does not request user profile management or a mandatory profile setup modal.",
+      "evidence": [
+        "backend/main.mo (UserProfile type, getCallerUserProfile/getUserProfile/saveCallerUserProfile)",
+        "frontend/src/components/admin/ProfileSetupModal.tsx",
+        "frontend/src/components/admin/AdminGuard.tsx"
+      ]
+    },
+    {
+      "description": "Secret token-based access control initialization via URL parameter (caffeineAdminToken) called on actor creation.",
+      "reason": "REQ-8 specifies Internet Identity authentication and admin-only method checks; it does not request a secret-token bootstrap mechanism passed via URL params.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts (getSecretParameter('caffeineAdminToken'), actor._initializeAccessControlWithSecret(adminToken))"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/README.md",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/admin/AdminGuard.tsx",
+    "frontend/src/components/admin/AdminHeader.tsx",
+    "frontend/src/components/admin/AdminLayout.tsx",
+    "frontend/src/components/admin/AuthButton.tsx",
+    "frontend/src/components/admin/ProfileSetupModal.tsx",
+    "frontend/src/components/public/Footer.tsx",
+    "frontend/src/components/public/Header.tsx",
+    "frontend/src/components/public/PublicLayout.tsx",
+    "frontend/src/components/public/ui/ButtonLink.tsx",
+    "frontend/src/components/public/ui/SectionHeading.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useAuthz.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/AcademicPartnersPage.tsx",
+    "frontend/src/pages/BlogDetailPage.tsx",
+    "frontend/src/pages/BlogsListPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/CoursesPage.tsx",
+    "frontend/src/pages/EducationLoanPage.tsx",
+    "frontend/src/pages/EligibilityPage.tsx",
+    "frontend/src/pages/EventsPage.tsx",
+    "frontend/src/pages/FacultyPage.tsx",
+    "frontend/src/pages/FaqPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/IndustryVisitPage.tsx",
+    "frontend/src/pages/InfrastructurePage.tsx",
+    "frontend/src/pages/InternationalCoursesPage.tsx",
+    "frontend/src/pages/InternshipPage.tsx",
+    "frontend/src/pages/LeadershipPage.tsx",
+    "frontend/src/pages/NewsPage.tsx",
+    "frontend/src/pages/PlacementPage.tsx",
+    "frontend/src/pages/ScholarshipTestPage.tsx",
+    "frontend/src/pages/TestimonialsPage.tsx",
+    "frontend/src/pages/TrainingProgramPage.tsx",
+    "frontend/src/pages/admin/AdminBlogEditorPage.tsx",
+    "frontend/src/pages/admin/AdminBlogsPage.tsx",
+    "frontend/src/pages/admin/AdminDashboardPage.tsx",
+    "frontend/src/pages/admin/AdminEnquiriesPage.tsx",
+    "frontend/src/pages/admin/AdminEnquiryDetailPage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
